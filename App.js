@@ -23,6 +23,7 @@ const server = http.createServer(function(req,res){
         });
         return req.on('end',() =>{
             const parsedBody = Buffer.concat(body).toString();
+            console.log(parsedBody);
             const message = parsedBody.split('=')[1];
             fs.writeFile('message.txt',message, (err) => {
                 res.statusCode = 302;
